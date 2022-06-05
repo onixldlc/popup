@@ -4,6 +4,10 @@ html, body {
 	height: 100%;
 }
 
+html{
+	background-color: transparent;
+}
+
 body {
 	color: #333;
 	margin: 0;
