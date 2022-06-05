@@ -48,9 +48,11 @@ pub fn init() -> JsonValue{
             let len_rand:i32 = config["timer_config"]["random_config"]["random_arr_len"].take().as_i32().unwrap_or(0);
 
             let mut values = JsonValue::new_array();
-            for _ in 1..len_rand{
+            for _ in 0..len_rand{
                 let i = thread_rng().gen_range(min_rand..max_rand);
-                values.push(Some(i));
+                if let Err(err) = values.push(i){
+                    println!("there was an error when creating array of random numbers: {}", err)
+                }
             }
 
             return values
@@ -60,5 +62,6 @@ pub fn init() -> JsonValue{
 }
 
 pub fn get_app_time(){
+    
     println!("{}", (init()).dump())
 }

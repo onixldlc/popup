@@ -56,10 +56,13 @@
     "windows": [
       {
         "fullscreen": false,
+        "minWidth": 250,
         "height": 600,
+        "minHeight": 320,
+        "width": 800,
         "resizable": true,
         "title": "popup",
-        "width": 800
+        "focus": true
       }
     ],
     "systemTray": {

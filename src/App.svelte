@@ -1,13 +1,41 @@
 <script>
-	export let name;
+	export let question="什么";
+	export let question_context="what is the pinyin of the character above:"
+	export let answer="what";
+	let user_answer="";
+
+	function check_answer(){
+		if(user_answer == answer){
+			alert(`well done :)`)
+		}else{
+			alert(`${question} = ${answer}`)
+		}
+	}
+
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h1 class="disableCopy">{question}</h1>
+	<h3>{question_context}</h3>
+	<input on:keydown={(e)=>{if(e.keyCode==13){check_answer()}}} bind:value={user_answer} type="text"/>
 </main>
 
 <style>
+	.disableCopy{
+		pointer-events: none;
+		user-select:none;
+	}
+
+	input{
+		transition-duration: 200ms;
+		text-align: center;
+	}
+
+	input:hover{
+		border: 1px solid rgb(0, 0, 0) ;
+		border-radius: 3px;
+	}
+
 	main {
 		text-align: center;
 		padding: 1em;

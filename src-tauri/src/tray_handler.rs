@@ -32,6 +32,9 @@ pub fn tray_event_handler(app:&AppHandle, event:SystemTrayEvent){
     SystemTrayEvent::DoubleClick {..} => {
       let window = app.get_window("main").unwrap();
       window.show().unwrap();
+      if let Err(_err)=window.set_focus(){
+        println!("somethign went wrong when focussing the window");
+      }
     }
     
     _ => {}
