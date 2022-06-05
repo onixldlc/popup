@@ -7,10 +7,12 @@
 
 mod tray_handler;
 mod window_handler;
+mod sleep_handler;
 
 fn main() {
   println!("hello there"); 
 
+  sleep_handler::get_app_time();
   let system_tray = tray_handler::tray_menu_handler();
 
   tauri::Builder::default()
